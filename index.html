@@ -81,63 +81,63 @@
     <script>
         const projects = [
             {
-                "icon": "hack/favicon.ico",
-                "name": "黑客帝国",
-                "description": "数字和虚拟世界的...",
+                "image": "hack/favicon.ico",
+                "title": "黑客帝国",
+                "desc": "数字和虚拟世界的...",
                 "url": "hack/index.html"
             },
             {
-                "icon": "idcard/favicon.ico",
-                "name": "idcard生成",
-                "description": "身份证号生成与校验",
+                "image": "idcard/favicon.ico",
+                "title": "idcard生成",
+                "desc": "身份证号生成与校验",
                 "url": "idcard/index.html"
             },
             {
-                "icon": "encrypt/favicon.ico",
-                "name": "加密解密",
-                "description": "AES、DES、RC4、Rabbit、TripleDes",
+                "image": "encrypt/favicon.ico",
+                "title": "加密解密",
+                "desc": "AES、DES、RC4、Rabbit、TripleDes",
                 "url": "encrypt/index.html"
             }, 
             {
-                "icon": "./imgs/wifi.ico",
-                "name": "WiFi 连接卡",
-                "description": "打印一张带有 WiFi 详细信息的登录卡片，把它贴到冰箱上、放到你的钱包里...",
-                "url": "https://wifi.gorpeln.eu.org/"
+                "image": "./imgs/wifi.ico",
+                "title": "WiFi 连接卡",
+                "desc": "打印一张带有 WiFi 详细信息的登录卡片，把它贴到冰箱上、放到你的钱包里...",
+                "url": "https://wifi.339336.xyz/"
             },
             {
-                "icon": "loveTree/favicon.ico",
-                "name": "爱情树",
-                "description": "爱情树 🌴将相爱的时刻永远珍藏 .",
+                "image": "loveTree/favicon.ico",
+                "title": "爱情树",
+                "desc": "爱情树 🌴将相爱的时刻永远珍藏 .",
                 "url": "loveTree/index.html"
             },
             {
-                "icon": "cat/favicon.ico",
-                "name": "圈小猫~",
-                "description": "点击小圆点，围住小猫~",
+                "image": "cat/favicon.ico",
+                "title": "圈小猫~",
+                "desc": "点击小圆点，围住小猫~",
                 "url": "cat/index.html"
             }, 
             {
-                "icon": "2048/favicon.ico",
-                "name": "2048",
-                "description": "合并相同方块,得到2048的方块",
+                "image": "2048/favicon.ico",
+                "title": "2048",
+                "desc": "合并相同方块,得到2048的方块",
                 "url": "2048/index.html"
             }, 
             {
-                "icon": "tetris/favicon.ico",
-                "name": "俄罗斯方块",
-                "description": "罗斯方块的基本规则是移动、旋转和摆放游戏自动输出的各种方块，使之排列成完整的一行或多行并且消除得分。由于上手简单、老少",
+                "image": "tetris/favicon.ico",
+                "title": "俄罗斯方块",
+                "desc": "罗斯方块的基本规则是移动、旋转和摆放游戏自动输出的各种方块，使之排列成完整的一行或多行并且消除得分。由于上手简单、老少",
                 "url": "tetris/index.html"
             }, 
             {
-                "icon": "https://cold.gorpeln.eu.org/favicon.svg",
-                "name": "便携小空调",
-                "description": "为你的夏日带去清凉！",
-                "url": "https://cold.gorpeln.eu.org/"
+                "image": "https://cold.339336.xyz/favicon.svg",
+                "title": "便携小空调",
+                "desc": "为你的夏日带去清凉！",
+                "url": "https://cold.339336.xyz/"
             }, 
             {
-                "icon": "woodenfish/favicon.ico",
-                "name": "敲木鱼",
-                "description": "敲电子木鱼-积累功德-自动功德机",
+                "image": "woodenfish/favicon.ico",
+                "title": "敲木鱼",
+                "desc": "敲电子木鱼-积累功德-自动功德机",
                 "url": "woodenfish/index.html"
             }
         ];
@@ -153,10 +153,10 @@
                 const listItem = document.createElement("li");
                 listItem.innerHTML = `
                     <a href="${project.url}" target="_blank">
-                        <img src="${project.icon}" alt="${project.name} Icon" loading="lazy" onerror="this.src='https://img.gorpeln.top/pwd/undefined.png'">
+                        <img src="${project.image}" alt="${project.title} Icon" loading="lazy" onerror="this.src='https://img.gorpeln.top/pwd/undefined.png'">
                         <div>
-                            <p class="title">${project.name}</p>
-                            <p class="des">${project.description}</p>
+                            <p class="title">${project.title}</p>
+                            <p class="des">${project.desc}</p>
                         </div>
                     </a>
                 `;
