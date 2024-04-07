@@ -1,0 +1,1444 @@
+/*
+   功能：js原生弹窗插件 动画支持
+   作者：小莫唐尼
+   博客：https://b.925i.cn
+   邮箱：studio@925i.cn
+   时间：2022年03月24日 15:11:50
+   版本：v1.1.3
+   修改记录：
+   修改内容： 
+   修改人员： 
+   修改时间：2022年03月23日 19:35:05
+*/
+
+/* 快速动画 */
+.alert-ani-fast {
+    animation-duration: 0.2s !important;
+}
+
+/* ======== 居中弹窗动画开始 ======== */
+
+/* 中间 */
+.alert-ani-show-zoom-in-center {
+    transform-origin: center center;
+    animation-fill-mode: forwards;
+    animation: show-ani-zoom-in-center 0.5s ease-in-out;
+}
+@keyframes show-ani-zoom-in-center {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+    }
+    85% {
+        transform: translate(-50%, -50%) scale(1.05);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+/* 中间(关闭) */
+.alert-ani-close-zoom-in-center {
+    transform-origin: center center;
+    animation-fill-mode: forwards;
+    /* animation: close-ani-zoom-in-center var(--animate-speed) ease-in-out; */
+    animation: close-ani-zoom-in-center 0.6s ease-in-out;
+}
+@keyframes close-ani-zoom-in-center {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    15% {
+        transform: translate(-50%, -50%) scale(1.05);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(0);
+    }
+}
+/* 左边 */
+.alert-ani-show-left-center {
+    transform-origin: left center;
+    animation-fill-mode: forwards;
+    animation: show-ani-left-center 0.5s ease-in-out;
+}
+@keyframes show-ani-left-center {
+    0% {
+        transform: translate(-150vw, -50%);
+    }
+    80% {
+        transform: translate(-48%, -50%);
+    }
+    90% {
+        transform: translate(-49%, -50%);
+    }
+    100% {
+        transform: translate(-50%, -50%);
+    }
+}
+/* 左边(关闭) */
+.alert-ani-close-left-center {
+    transform-origin: left center;
+    animation-fill-mode: forwards;
+    animation: close-ani-left-center 0.6s ease-in-out;
+}
+@keyframes close-ani-left-center {
+    0% {
+        transform: translate(-50%, -50%);
+    }
+    15% {
+        transform: translate(-48%, -50%);
+    }
+    100% {
+        transform: translate(-150vw, -50%);
+    }
+}
+/* 顶部 */
+.alert-ani-show-top-center {
+    transform-origin: top center;
+    animation-fill-mode: forwards;
+    animation: show-ani-top-center 0.5s ease-in-out;
+}
+@keyframes show-ani-top-center {
+    0% {
+        transform: translate(-50%, -150vh);
+    }
+    80% {
+        transform: translate(-50%, -48%);
+    }
+    90% {
+        transform: translate(-50%, -49%);
+    }
+    100% {
+        transform: translate(-50%, -50%);
+    }
+}
+/* 顶部(关闭) */
+.alert-ani-close-top-center {
+    transform-origin: top center;
+    animation-fill-mode: forwards;
+    animation: close-ani-top-center 0.6s ease-in-out;
+}
+@keyframes close-ani-top-center {
+    0% {
+        transform: translate(-50%, -50%);
+    }
+    15% {
+        transform: translate(-50%, -48%);
+    }
+    100% {
+        transform: translate(-50%, -150vh);
+    }
+}
+/* 右边 */
+.alert-ani-show-right-center {
+    transform-origin: right center;
+    animation-fill-mode: forwards;
+    animation: show-ani-right-center 0.5s ease-in-out;
+}
+@keyframes show-ani-right-center {
+    0% {
+        transform: translate(150vw, -50%);
+    }
+    80% {
+        transform: translate(-52%, -50%);
+    }
+    90% {
+        transform: translate(-51%, -50%);
+    }
+    100% {
+        transform: translate(-50%, -50%);
+    }
+}
+/* 右边(关闭) */
+.alert-ani-close-right-center {
+    transform-origin: right center;
+    animation-fill-mode: forwards;
+    animation: close-ani-right-center 0.6s ease-in-out;
+}
+@keyframes close-ani-right-center {
+    0% {
+        transform: translate(-50%, -50%);
+    }
+    15% {
+        transform: translate(-52%, -50%);
+    }
+    100% {
+        transform: translate(150vw, -50%);
+    }
+}
+/* 底部 */
+.alert-ani-show-bottom-center {
+    transform-origin: bottom center;
+    animation-fill-mode: forwards;
+    animation: show-ani-bottom-center 0.5s ease-in-out;
+}
+@keyframes show-ani-bottom-center {
+    0% {
+        transform: translate(-50%, 150vh);
+    }
+    80% {
+        transform: translate(-50%, -54%);
+    }
+    90% {
+        transform: translate(-50%, -52%);
+    }
+    100% {
+        transform: translate(-50%, -50%);
+    }
+}
+/* 底部(关闭) */
+.alert-ani-close-bottom-center {
+    transform-origin: bottom center;
+    animation-fill-mode: forwards;
+    animation: close-ani-bottom-center 0.6s ease-in-out;
+}
+@keyframes close-ani-bottom-center {
+    0% {
+        transform: translate(-50%, -50%);
+    }
+    15% {
+        transform: translate(-50%, -54%);
+    }
+    100% {
+        transform: translate(-50%, 150vh);
+    }
+}
+/* ======== 居中弹窗动画结束 ======== */
+
+/* ======== 左边弹窗动画开始 ======== */
+/* 从中间 */
+.alert-ani-show-zoom-in-left {
+    transform-origin: center top;
+    animation-fill-mode: forwards;
+    animation: show-ani-zoom-in-left 0.5s ease-in-out;
+}
+@keyframes show-ani-zoom-in-left {
+    0% {
+        transform: scale(0) translateY(-50%);
+    }
+    85% {
+        transform: scale(1.05) translateY(-50%);
+    }
+    100% {
+        transform: scale(1) translateY(-50%);
+    }
+}
+/* 从中间(关闭) */
+.alert-ani-close-zoom-in-left {
+    transform-origin: center top;
+    animation-fill-mode: forwards;
+    animation: close-ani-zoom-in-left 0.6s ease-in-out;
+}
+@keyframes close-ani-zoom-in-left {
+    0% {
+        transform: scale(1) translateY(-50%);
+    }
+    15% {
+        transform: scale(1.03) translateY(-50%);
+    }
+    100% {
+        transform: scale(0) translateY(-50%);
+    }
+}
+/* 左边 */
+.alert-ani-show-left-left {
+    animation: show-ani-left-left 0.5s ease-in-out;
+}
+@keyframes show-ani-left-left {
+    0% {
+        left: -150vw;
+    }
+    85% {
+        left: 30px;
+    }
+    100% {
+        left: 20px;
+    }
+}
+/* 左边(关闭) */
+.alert-ani-close-left-left {
+    animation: close-ani-left-left 0.6s ease-in-out;
+}
+@keyframes close-ani-left-left {
+    0% {
+        left: var(--left-offset);
+    }
+    100% {
+        left: -150vw;
+    }
+}
+/* 顶部 */
+.alert-ani-show-top-left {
+    animation: show-ani-top-left 0.5s ease-in-out;
+}
+@keyframes show-ani-top-left {
+    0% {
+        top: -150vh;
+    }
+    80% {
+        top: 52%;
+    }
+    90% {
+        top: 51%;
+    }
+
+    100% {
+        top: 50%;
+    }
+}
+/* 顶部(关闭) */
+.alert-ani-close-top-left {
+    animation: close-ani-top-left 0.6s ease-in-out;
+}
+@keyframes close-ani-top-left {
+    0% {
+        top: var(--top-offset);
+    }
+    100% {
+        top: -150vh;
+    }
+}
+/* 从右 */
+.alert-ani-show-right-left {
+    transform-origin: right center;
+    animation-fill-mode: forwards;
+    animation: show-ani-right-left 0.5s ease-in-out;
+}
+@keyframes show-ani-right-left {
+    0% {
+        left: 150vw;
+    }
+    85% {
+        left: 10px;
+    }
+    100% {
+        left: 20px;
+    }
+}
+/* 从右(关闭) */
+.alert-ani-close-right-left {
+    animation: close-ani-right-left 0.6s ease-in-out;
+}
+@keyframes close-ani-right-left {
+    0% {
+        left: var(--left-offset);
+    }
+    100% {
+        left: 150vw;
+    }
+}
+/* 底部 */
+.alert-ani-show-bottom-left {
+    animation: show-ani-bottom-left 0.5s ease-in-out;
+}
+@keyframes show-ani-bottom-left {
+    0% {
+        top: 150vh;
+    }
+    80% {
+        top: 48%;
+    }
+    90% {
+        top: 49%;
+    }
+    100% {
+        top: 50%;
+    }
+}
+/* 底部(关闭) */
+.alert-ani-close-bottom-left {
+    animation: close-ani-bottom-left 0.6s ease-in-out;
+}
+@keyframes close-ani-bottom-left {
+    0% {
+        top: var(--top-offset);
+    }
+    100% {
+        top: 150vh;
+    }
+}
+/* ======== 左边弹窗动画结束 ======== */
+
+/* ======== 左上角弹窗动画开始 ======== */
+/* 从中间 */
+.alert-ani-show-zoom-in-left-top {
+    transform-origin: center center;
+    animation-fill-mode: forwards;
+    animation: show-ani-zoom-in-left-top 0.5s ease-in-out;
+}
+@keyframes show-ani-zoom-in-left-top {
+    0% {
+        transform: scale(0);
+    }
+    85% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+/* 从中间(关闭) */
+.alert-ani-close-zoom-in-left-top {
+    transform-origin: center center;
+    animation-fill-mode: forwards;
+    animation: close-ani-zoom-in-left-top 0.6s ease-in-out;
+}
+@keyframes close-ani-zoom-in-left-top {
+    0% {
+        transform: scale(1);
+    }
+    15% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+/* 从左边 */
+.alert-ani-show-left-left-top {
+    transform-origin: center center;
+    animation-fill-mode: forwards;
+    animation: show-ani-left-left-top 0.5s ease-in-out;
+}
+@keyframes show-ani-left-left-top {
+    0% {
+        left: -150vw;
+    }
+    85% {
+        left: 30px;
+    }
+    100% {
+        left: 20px;
+    }
+}
+/* 从左边(关闭) */
+.alert-ani-close-left-left-top {
+    animation: close-ani-left-left-top 0.6s ease-in-out;
+}
+@keyframes close-ani-left-left-top {
+    0% {
+        left: var(--left-offset);
+    }
+
+    100% {
+        left: -150vw;
+    }
+}
+/* 从顶部 */
+.alert-ani-show-top-left-top {
+    transform-origin: center center;
+    animation-fill-mode: forwards;
+    animation: show-ani-top-left-top 0.5s ease-in-out;
+}
+@keyframes show-ani-top-left-top {
+    0% {
+        top: -150vh;
+    }
+    85% {
+        top: 30px;
+    }
+    100% {
+        top: 20px;
+    }
+}
+/* 从顶部(关闭) */
+.alert-ani-close-top-left-top {
+    animation: close-ani-top-left-top 0.6s ease-in-out;
+}
+@keyframes close-ani-top-left-top {
+    0% {
+        top: var(--top-offset);
+    }
+    100% {
+        top: -150vh;
+    }
+}
+/* 从右边 */
+.alert-ani-show-right-left-top {
+    transform-origin: center center;
+    animation-fill-mode: forwards;
+    animation: show-ani-right-left-top 0.5s ease-in-out;
+}
+@keyframes show-ani-right-left-top {
+    0% {
+        left: 150vw;
+    }
+    85% {
+        left: 10px;
+    }
+    100% {
+        left: 20px;
+    }
+}
+/* 从右边(关闭) */
+.alert-ani-close-right-left-top {
+    animation: close-ani-right-left-top 0.6s ease-in-out;
+}
+@keyframes close-ani-right-left-top {
+    0% {
+        left: var(--left-offset);
+    }
+
+    100% {
+        left: 150vw;
+    }
+}
+/* 从底部 */
+.alert-ani-show-bottom-left-top {
+    transform-origin: center center;
+    animation-fill-mode: forwards;
+    animation: show-ani-bottom-left-top 0.5s ease-in-out;
+}
+@keyframes show-ani-bottom-left-top {
+    0% {
+        top: 150vh;
+    }
+    85% {
+        top: 10px;
+    }
+    100% {
+        top: 20px;
+    }
+}
+/* 从底部(关闭) */
+.alert-ani-close-bottom-left-top {
+    animation: close-ani-bottom-left-top 0.6s ease-in-out;
+}
+@keyframes close-ani-bottom-left-top {
+    0% {
+        top: var(--top-offset);
+    }
+
+    100% {
+        top: 150vh;
+    }
+}
+/* ======== 左上角弹窗动画结束 ======== */
+
+/* ======== 左下角弹窗动画开始 ======== */
+/* 从中间 */
+.alert-ani-show-zoom-in-left-bottom {
+    transform-origin: center center;
+    animation-fill-mode: forwards;
+    animation: show-ani-zoom-in-left-bottom 0.5s ease-in-out;
+}
+@keyframes show-ani-zoom-in-left-bottom {
+    0% {
+        transform: scale(0);
+    }
+    85% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+/* 从中间(关闭) */
+.alert-ani-close-zoom-in-left-bottom {
+    transform-origin: center center;
+    animation-fill-mode: forwards;
+    animation: close-ani-zoom-in-left-bottom 0.6s ease-in-out;
+}
+@keyframes close-ani-zoom-in-left-bottom {
+    0% {
+        transform: scale(1);
+    }
+    15% {
+        transform: scale(1.03);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+/* 从左边 */
+.alert-ani-show-left-left-bottom {
+    transform-origin: center center;
+    animation-fill-mode: forwards;
+    animation: show-ani-left-left-bottom 0.5s ease-in-out;
+}
+@keyframes show-ani-left-left-bottom {
+    0% {
+        left: -150vw;
+    }
+    85% {
+        left: 30px;
+    }
+    100% {
+        left: 20px;
+    }
+}
+/* 从左边(关闭) */
+.alert-ani-close-left-left-bottom {
+    animation: close-ani-left-left-bottom 0.6s ease-in-out;
+}
+@keyframes close-ani-left-left-bottom {
+    0% {
+        left: var(--left-offset);
+    }
+    100% {
+        left: -150vw;
+    }
+}
+/* 从顶部 */
+.alert-ani-show-top-left-bottom {
+    transform-origin: center center;
+    animation-fill-mode: forwards;
+    animation: show-ani-top-left-bottom 0.5s ease-in-out;
+}
+@keyframes show-ani-top-left-bottom {
+    0% {
+        bottom: 150vh;
+    }
+    85% {
+        bottom: 10px;
+    }
+    100% {
+        bottom: 20px;
+    }
+}
+/* 从顶部(关闭) */
+.alert-ani-close-top-left-bottom {
+    animation: close-ani-top-left-bottom 0.6s ease-in-out;
+}
+@keyframes close-ani-top-left-bottom {
+    0% {
+        top: initial;
+        bottom: var(--bottom-offset);
+    }
+
+    100% {
+        top: initial;
+        bottom: 150vh;
+    }
+}
+/* 从右边 */
+.alert-ani-show-right-left-bottom {
+    animation: show-ani-right-left-bottom 0.5s ease-in-out;
+}
+@keyframes show-ani-right-left-bottom {
+    0% {
+        left: 150vw;
+    }
+    85% {
+        left: 10px;
+    }
+    100% {
+        left: 20px;
+    }
+}
+/* 从右边(关闭) */
+.alert-ani-close-right-left-bottom {
+    animation: close-ani-right-left-bottom 0.6s ease-in-out;
+}
+@keyframes close-ani-right-left-bottom {
+    0% {
+        left: var(--left-offset);
+    }
+    100% {
+        left: 150vw;
+    }
+}
+/* 从底部 */
+.alert-ani-show-bottom-left-bottom {
+    animation: show-ani-bottom-left-bottom 0.5s ease-in-out;
+}
+@keyframes show-ani-bottom-left-bottom {
+    0% {
+        bottom: -100vh;
+    }
+    85% {
+        bottom: 10px;
+    }
+    100% {
+        bottom: 20px;
+    }
+}
+/* 从底部(关闭) */
+.alert-ani-close-bottom-left-bottom {
+    animation: close-ani-bottom-left-bottom 0.6s ease-in-out;
+}
+@keyframes close-ani-bottom-left-bottom {
+    0% {
+        top: initial;
+        bottom: var(--bottom-offset);
+    }
+
+    100% {
+        top: initial;
+        bottom: -100vh;
+    }
+}
+/* ======== 左下角弹窗动画结束 ======== */
+
+/* ======== 顶部弹窗动画开始 ======== */
+/* 从中间 */
+.alert-ani-show-zoom-in-top {
+    transform-origin: left center;
+    animation-fill-mode: forwards;
+    animation: show-ani-zoom-in-top 0.5s ease-in-out;
+}
+@keyframes show-ani-zoom-in-top {
+    0% {
+        transform: scale(0) translateX(-50%);
+    }
+    85% {
+        transform: scale(1.05) translateX(-50%);
+    }
+    100% {
+        transform: scale(1) translateX(-50%);
+    }
+}
+/* 从中间(关闭) */
+.alert-ani-close-zoom-in-top {
+    transform-origin: left center;
+    animation-fill-mode: forwards;
+    animation: close-ani-zoom-in-top 0.6s ease-in-out;
+}
+@keyframes close-ani-zoom-in-top {
+    0% {
+        transform: scale(1) translateX(-50%);
+    }
+    15% {
+        transform: scale(1.05) translateX(-50%);
+    }
+    100% {
+        transform: scale(0) translateX(-50%);
+    }
+}
+/* 从左边 */
+.alert-ani-show-left-top {
+    animation: show-ani-left-top 0.5s ease-in-out;
+}
+@keyframes show-ani-left-top {
+    0% {
+        left: -150vw;
+    }
+    80% {
+        left: 52%;
+    }
+    90% {
+        left: 51%;
+    }
+    100% {
+        left: 50%;
+    }
+}
+/* 从左边(关闭) */
+.alert-ani-close-left-top {
+    animation: close-ani-left-top 0.6s ease-in-out;
+}
+@keyframes close-ani-left-top {
+    0% {
+        left: var(--left-offset);
+    }
+    100% {
+        left: -150vw;
+    }
+}
+/* 从顶部 */
+.alert-ani-show-top-top {
+    animation: show-ani-top-top 0.5s ease-in-out;
+}
+@keyframes show-ani-top-top {
+    0% {
+        top: -150vh;
+    }
+    85% {
+        top: 30px;
+    }
+    100% {
+        top: 20px;
+    }
+}
+/* 从顶部(关闭) */
+.alert-ani-close-top-top {
+    animation: close-ani-top-top 0.6s ease-in-out;
+}
+@keyframes close-ani-top-top {
+    0% {
+        top: var(--top-offset);
+    }
+    100% {
+        top: -150vh;
+    }
+}
+/* 从右边 */
+.alert-ani-show-right-top {
+    transform-origin: left center;
+    animation-fill-mode: forwards;
+    animation: show-ani-right-top 0.5s ease-in-out;
+}
+@keyframes show-ani-right-top {
+    0% {
+        left: 150vw;
+    }
+    80% {
+        left: 48%;
+    }
+    90% {
+        left: 49%;
+    }
+    100% {
+        left: 50%;
+    }
+}
+/* 从右边(关闭) */
+.alert-ani-close-right-top {
+    animation: close-ani-right-top 0.6s ease-in-out;
+}
+@keyframes close-ani-right-top {
+    0% {
+        left: var(--left-offset);
+    }
+    100% {
+        left: 150vw;
+    }
+}
+/* 从底部 */
+.alert-ani-show-bottom-top {
+    animation: show-ani-bottom-top 0.5s ease-in-out;
+}
+@keyframes show-ani-bottom-top {
+    0% {
+        top: 150vh;
+    }
+    85% {
+        top: 10px;
+    }
+    100% {
+        top: 20px;
+    }
+}
+/* 从底部(关闭) */
+.alert-ani-close-bottom-top {
+    animation: close-ani-bottom-top 0.6s ease-in-out;
+}
+@keyframes close-ani-bottom-top {
+    0% {
+        top: var(--top-offset);
+    }
+    100% {
+        top: 150vh;
+    }
+}
+/* ======== 顶部角弹窗动画结束 ======== */
+
+/* ======== 右上角弹窗动画开始 ======== */
+/* 从中间 */
+.alert-ani-show-zoom-in-right-top {
+    transform-origin: center center;
+    animation-fill-mode: forwards;
+    animation: show-ani-zoom-in-right-top 0.5s ease-in-out;
+}
+@keyframes show-ani-zoom-in-right-top {
+    0% {
+        transform: scale(0);
+    }
+    85% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+/* 从中间(关闭) */
+.alert-ani-close-zoom-in-right-top {
+    transform-origin: center center;
+    animation-fill-mode: forwards;
+    animation: close-ani-zoom-in-right-top 0.6s ease-in-out;
+}
+@keyframes close-ani-zoom-in-right-top {
+    0% {
+        transform: scale(1);
+    }
+    15% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+/* 从左边 */
+.alert-ani-show-left-right-top {
+    animation: show-ani-left-right-top 0.5s ease-in-out;
+}
+@keyframes show-ani-left-right-top {
+    0% {
+        right: 150vw;
+    }
+    85% {
+        right: 10px;
+    }
+    100% {
+        right: 20px;
+    }
+}
+/* 从左边(关闭) */
+.alert-ani-close-left-right-top {
+    animation: close-ani-left-right-top 0.6s ease-in-out;
+}
+@keyframes close-ani-left-right-top {
+    0% {
+        left: initial;
+        right: var(--right-offset);
+    }
+    100% {
+        left: initial;
+        right: 150vw;
+    }
+}
+/* 从顶部 */
+.alert-ani-show-top-right-top {
+    animation: show-ani-top-right-top 0.5s ease-in-out;
+}
+@keyframes show-ani-top-right-top {
+    0% {
+        top: -100vh;
+    }
+    85% {
+        top: 30px;
+    }
+    100% {
+        top: 20px;
+    }
+}
+/* 从顶部(关闭) */
+.alert-ani-close-top-right-top {
+    animation: close-ani-top-right-top 0.6s ease-in-out;
+}
+@keyframes close-ani-top-right-top {
+    0% {
+        top: var(--top-offset);
+    }
+    100% {
+        top: -100vh;
+    }
+}
+/* 从右边 */
+.alert-ani-show-right-right-top {
+    transform-origin: right center;
+    animation-fill-mode: forwards;
+    animation: show-ani-right-right-top 0.5s ease-in-out;
+}
+@keyframes show-ani-right-right-top {
+    0% {
+        right: -150vw;
+    }
+    85% {
+        right: 30px;
+    }
+    100% {
+        right: 20px;
+    }
+}
+/* 从右边(关闭) */
+.alert-ani-close-right-right-top {
+    animation: close-ani-right-right-top 0.6s ease-in-out;
+}
+@keyframes close-ani-right-right-top {
+    0% {
+        left: initial;
+        right: var(--right-offset);
+    }
+    100% {
+        left: initial;
+        right: -150vw;
+    }
+}
+/* 从底部 */
+.alert-ani-show-bottom-right-top {
+    transform-origin: right center;
+    animation-fill-mode: forwards;
+    animation: show-ani-bottom-right-top 0.5s ease-in-out;
+}
+@keyframes show-ani-bottom-right-top {
+    0% {
+        top: 150vh;
+    }
+    85% {
+        top: 10px;
+    }
+    100% {
+        top: 20px;
+    }
+}
+/* 从底部(关闭) */
+.alert-ani-close-bottom-right-top {
+    animation: close-ani-bottom-right-top 0.6s ease-in-out;
+}
+@keyframes close-ani-bottom-right-top {
+    0% {
+        top: var(--top-offset);
+    }
+    100% {
+        top: 150vh;
+    }
+}
+/* ======== 右上角弹窗动画结束 ======== */
+
+/* ======== 右边弹窗动画开始 ======== */
+/* 从中间 */
+.alert-ani-show-zoom-in-right {
+    transform-origin: center top;
+    animation-fill-mode: forwards;
+    animation: show-ani-zoom-in-right 0.5s ease-in-out;
+}
+@keyframes show-ani-zoom-in-right {
+    0% {
+        transform: scale(0) translateY(-50%);
+    }
+    85% {
+        transform: scale(1.05) translateY(-50%);
+    }
+    100% {
+        transform: scale(1) translateY(-50%);
+    }
+}
+/* 从中间(关闭) */
+.alert-ani-close-zoom-in-right {
+    transform-origin: center top;
+    animation-fill-mode: forwards;
+    animation: close-ani-zoom-in-right 0.6s ease-in-out;
+}
+@keyframes close-ani-zoom-in-right {
+    0% {
+        transform: scale(1) translateY(-50%);
+    }
+    85% {
+        transform: scale(1.05) translateY(-50%);
+    }
+    100% {
+        transform: scale(0) translateY(-50%);
+    }
+}
+/* 从左边*/
+.alert-ani-show-left-right {
+    transform-origin: center top;
+    animation-fill-mode: forwards;
+    animation: show-ani-left-right 0.5s ease-in-out;
+}
+@keyframes show-ani-left-right {
+    0% {
+        right: 150vw;
+    }
+    85% {
+        right: 10px;
+    }
+    100% {
+        right: 20px;
+    }
+}
+/* 从左边(关闭) */
+.alert-ani-close-left-right {
+    animation: close-ani-left-right 0.6s ease-in-out;
+}
+@keyframes close-ani-left-right {
+    0% {
+        left: initial;
+        right: var(--right-offset);
+    }
+    100% {
+        left: initial;
+        right: 150vw;
+    }
+}
+/* 从顶部*/
+.alert-ani-show-top-right {
+    animation: show-ani-top-right 0.5s ease-in-out;
+}
+@keyframes show-ani-top-right {
+    0% {
+        top: -100vh;
+    }
+    85% {
+        top: 55%;
+    }
+    100% {
+        top: 50%;
+    }
+}
+/* 从顶部(关闭) */
+.alert-ani-close-top-right {
+    animation: close-ani-top-right 0.6s ease-in-out;
+}
+@keyframes close-ani-top-right {
+    0% {
+        top: var(--top-offset);
+    }
+    100% {
+        top: -100vh;
+    }
+}
+/* 从右边*/
+.alert-ani-show-right-right {
+    animation: show-ani-right-right 0.5s ease-in-out;
+}
+@keyframes show-ani-right-right {
+    0% {
+        right: -100vw;
+    }
+    85% {
+        right: 30px;
+    }
+    100% {
+        right: 20px;
+    }
+}
+/* 从右边(关闭) */
+.alert-ani-close-right-right {
+    animation: close-ani-right-right 0.6s ease-in-out;
+}
+@keyframes close-ani-right-right {
+    0% {
+        left: initial;
+        right: var(--right-offset);
+    }
+    100% {
+        left: initial;
+        right: -100vw;
+    }
+}
+/* 从底部 */
+.alert-ani-show-bottom-right {
+    animation: show-ani-bottom-right 0.5s ease-in-out;
+}
+@keyframes show-ani-bottom-right {
+    0% {
+        top: 150vh;
+    }
+    80% {
+        top: 48%;
+    }
+    90% {
+        top: 49%;
+    }
+    100% {
+        top: 50%;
+    }
+}
+/* 从底部（关闭） */
+.alert-ani-close-bottom-right {
+    animation: close-ani-bottom-right 0.56s ease-in-out;
+}
+@keyframes close-ani-bottom-right {
+    0% {
+        top: var(--top-offset);
+    }
+    100% {
+        top: 150vh;
+    }
+}
+/* ======== 右边弹窗动画结束 ======== */
+
+/* ======== 右下角弹窗动画开始 ======== */
+/* 从中间 */
+.alert-ani-show-zoom-in-right-bottom {
+    transform-origin: center center;
+    animation-fill-mode: forwards;
+    animation: show-ani-zoom-in-right-bottom 0.5s ease-in-out;
+}
+@keyframes show-ani-zoom-in-right-bottom {
+    0% {
+        transform: scale(0);
+    }
+    85% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+/* 从中间(关闭) */
+.alert-ani-close-zoom-in-right-bottom {
+    transform-origin: center center;
+    animation-fill-mode: forwards;
+    animation: close-ani-zoom-in-right-bottom 0.6s ease-in-out;
+}
+@keyframes close-ani-zoom-in-right-bottom {
+    0% {
+        transform: scale(1);
+    }
+    15% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+/* 从左边 */
+.alert-ani-show-left-right-bottom {
+    animation: show-ani-left-right-bottom 0.5s ease-in-out;
+}
+@keyframes show-ani-left-right-bottom {
+    0% {
+        right: 100vw;
+    }
+    85% {
+        right: 10px;
+    }
+    100% {
+        right: 20px;
+    }
+}
+/* 从左边(关闭) */
+.alert-ani-close-left-right-bottom {
+    animation: close-ani-left-right-bottom 0.6s ease-in-out;
+}
+@keyframes close-ani-left-right-bottom {
+    0% {
+        left: initial;
+        right: var(--right-offset);
+    }
+
+    100% {
+        left: initial;
+        right: 100vw;
+    }
+}
+
+/* 从顶部 */
+.alert-ani-show-top-right-bottom {
+    animation: show-ani-top-right-bottom 0.5s ease-in-out;
+}
+@keyframes show-ani-top-right-bottom {
+    0% {
+        bottom: 100vh;
+    }
+    85% {
+        bottom: 10px;
+    }
+    100% {
+        bottom: 20px;
+    }
+}
+/* 从顶部（关闭） */
+.alert-ani-close-top-right-bottom {
+    animation: close-ani-top-right-bottom 0.6s ease-in-out;
+}
+@keyframes close-ani-top-right-bottom {
+    0% {
+        top: initial;
+        bottom: var(--bottom-offset);
+    }
+    100% {
+        top: initial;
+        bottom: 100vh;
+    }
+}
+/* 从右边 */
+.alert-ani-show-right-right-bottom {
+    animation: show-ani-right-right-bottom 0.5s ease-in-out;
+}
+@keyframes show-ani-right-right-bottom {
+    0% {
+        right: -100vh;
+    }
+    85% {
+        right: 30px;
+    }
+    100% {
+        right: 20px;
+    }
+}
+/* 从右边(关闭) */
+.alert-ani-close-right-right-bottom {
+    animation: close-ani-right-right-bottom 0.6s ease-in-out;
+}
+@keyframes close-ani-right-right-bottom {
+    0% {
+        left: initial;
+        right: var(--right-offset);
+    }
+    100% {
+        left: initial;
+        right: -100vh;
+    }
+}
+
+/* 从底部 */
+.alert-ani-show-bottom-right-bottom {
+    animation: show-ani-bottom-right-bottom 0.5s ease-in-out;
+}
+@keyframes show-ani-bottom-right-bottom {
+    0% {
+        bottom: -100vh;
+    }
+    85% {
+        bottom: 30px;
+    }
+    100% {
+        bottom: 20px;
+    }
+}
+
+/* 从底部(关闭) */
+.alert-ani-close-bottom-right-bottom {
+    animation: close-ani-bottom-right-bottom 0.6s ease-in-out;
+}
+@keyframes close-ani-bottom-right-bottom {
+    0% {
+        top: initial;
+        bottom: var(--bottom-offset);
+    }
+
+    100% {
+        top: initial;
+        bottom: -100vh;
+    }
+}
+/* ======== 右下角弹窗动画结束 ======== */
+
+/* ======== 底部弹窗动画开始 ======== */
+/* 从中间 */
+.alert-ani-show-zoom-in-bottom {
+    transform-origin: left center;
+    animation-fill-mode: forwards;
+    animation: show-ani-zoom-in-bottom 0.5s ease-in-out;
+}
+@keyframes show-ani-zoom-in-bottom {
+    0% {
+        transform: scale(0) translateX(-50%);
+    }
+    85% {
+        transform: scale(1.05) translateX(-50%);
+    }
+    100% {
+        transform: scale(1) translateX(-50%);
+    }
+}
+/* 从中间(关闭) */
+.alert-ani-close-zoom-in-bottom {
+    transform-origin: left center;
+    animation-fill-mode: forwards;
+    animation: close-ani-zoom-in-bottom 0.6s ease-in-out;
+}
+@keyframes close-ani-zoom-in-bottom {
+    0% {
+        transform: scale(1) translateX(-50%);
+    }
+    15% {
+        transform: scale(1.05) translateX(-50%);
+    }
+    100% {
+        transform: scale(0) translateX(-50%);
+    }
+}
+/* 从左边 */
+.alert-ani-show-left-bottom {
+    animation: show-ani-left-bottom 0.5s ease-in-out;
+}
+@keyframes show-ani-left-bottom {
+    0% {
+        left: -150vw;
+    }
+    80% {
+        left: 52%;
+    }
+    90% {
+        left: 51%;
+    }
+    100% {
+        left: 50%;
+    }
+}
+/* 从左边(关闭) */
+.alert-ani-close-left-bottom {
+    animation: close-ani-left-bottom 0.6s ease-in-out;
+}
+@keyframes close-ani-left-bottom {
+    0% {
+        left: var(--left-offset);
+    }
+    100% {
+        left: -100vw;
+    }
+}
+/* 从顶部 */
+.alert-ani-show-top-bottom {
+    animation: show-ani-top-bottom 0.5s ease-in-out;
+}
+@keyframes show-ani-top-bottom {
+    0% {
+        bottom: 100vh;
+    }
+    85% {
+        bottom: 10px;
+    }
+    100% {
+        bottom: 20px;
+    }
+}
+/* 从顶部(关闭) */
+.alert-ani-close-top-bottom {
+    animation: close-ani-top-bottom 0.6s ease-in-out;
+}
+@keyframes close-ani-top-bottom {
+    0% {
+        top: initial;
+        bottom: var(--bottom-offset);
+    }
+
+    100% {
+        top: initial;
+        bottom: 100vh;
+    }
+}
+
+/* 从右边 */
+.alert-ani-show-right-bottom {
+    animation: show-ani-right-bottom 0.5s ease-in-out;
+}
+@keyframes show-ani-right-bottom {
+    0% {
+        left: 100vw;
+    }
+    80% {
+        left: 48%;
+    }
+    90% {
+        left: 49%;
+    }
+    100% {
+        left: 50%;
+    }
+}
+/* 从右边(关闭) */
+.alert-ani-close-right-bottom {
+    animation: close-ani-right-bottom 0.6s ease-in-out;
+}
+@keyframes close-ani-right-bottom {
+    0% {
+        left: var(--left-offset);
+    }
+    100% {
+        left: 100vw;
+    }
+}
+/* 从底部 */
+.alert-ani-show-bottom-bottom {
+    animation: show-ani-bottom-bottom 0.5s ease-in-out;
+}
+@keyframes show-ani-bottom-bottom {
+    0% {
+        bottom: -100vh;
+    }
+    90% {
+        bottom: 30px;
+    }
+    100% {
+        bottom: 20px;
+    }
+}
+/* 从底部（关闭） */
+.alert-ani-close-bottom-bottom {
+    animation: close-ani-bottom-bottom 0.6s ease-in-out;
+}
+@keyframes close-ani-bottom-bottom {
+    0% {
+        top: initial;
+        bottom: var(--bottom-offset);
+    }
+    100% {
+        top: initial;
+        bottom: -100vh;
+    }
+}
+/* ======== 底部弹窗动画结束 ======== */

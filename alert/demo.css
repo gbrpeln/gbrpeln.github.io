@@ -1,0 +1,148 @@
+/* 注意：以下为示例页面的样式，与插件无关 */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 30px 20px;
+    min-height: 110vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn {
+    border-radius: 6px;
+    padding: 6px 15px;
+    background-color: #ff80ab;
+    border: 1px solid #ff80ab;
+    color: #fff;
+    transition: box-shadow 0.05s ease-in-out, transform 0.1s ease-in-out;
+    cursor: pointer;
+}
+
+.btn:active,
+.btn:hover {
+    box-shadow: 0px 2px 10px rgba(255, 128, 171, 0.4);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn + .btn {
+    /* margin: 10px; */
+}
+
+.btn.btn2 {
+    background-color: rgb(25, 159, 189);
+    border: 1px solid #199fbd;
+}
+
+.btn.btn2:active,
+.btn.btn2:hover {
+    box-shadow: 0px 2px 10px rgba(25, 159, 189, 0.4);
+}
+
+.btn.btn3 {
+    background-color: rgb(221, 184, 128);
+    border: 1px solid #ddb880;
+}
+
+.btn.btn3:active,
+.btn.btn3:hover {
+    box-shadow: 0px 2px 10px rgba(221, 184, 128, 0.4);
+}
+
+.content-box {
+    max-width: 680px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    padding: 20px 30px;
+}
+.content-box + .content-box {
+    margin-top: 30px;
+}
+.btn-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px 20px;
+}
+
+.btn-wrap .btn {
+    width: 30%;
+    min-height: 50px;
+}
+
+.title {
+    font-size: 16px;
+    margin: 0;
+    margin-bottom: 15px;
+    color: #6e7790;
+}
+
+.content-box.base {
+    width: 100%;
+}
+
+.base .btn-wrap {
+    justify-content: center;
+}
+
+.base .btn-wrap .btn {
+    width: 31%;
+}
+
+@media screen and (max-width: 500px) {
+    .btn-wrap {
+        gap: initial;
+    }
+    .btn-wrap .btn {
+        width: 46%;
+        min-height: 50px;
+    }
+
+    .base .btn-wrap .btn {
+        width: 100%;
+    }
+
+    .btn + .btn {
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .btn-wrap .btn {
+        width: 100%;
+        min-height: 50px;
+    }
+}
+
+.page-title {
+    font-size: 24px;
+    margin-bottom: 25px;
+    color: #199fbd;
+    text-align: center;
+}
+
+.copy-right {
+    text-align: center;
+    padding-top: 30px;
+    font-size: 15px;
+    color: #ddb880;
+}
+
+.copy-right a {
+    color: #ddb880;
+}

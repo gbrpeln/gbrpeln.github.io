@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="gorpeln：https://gorpeln.top">
+        <title>自定义alert示例 - gorpeln</title>
+
+        <!-- 第一步：引入插件样式 -->
+        <!-- 基础样式 -->
+        <!-- <link rel="stylesheet" href="./alert/css/alert.css"> -->
+        <link rel="stylesheet" href="./alert/css/alert.min.css">
+        <!-- 动画支持：animate属性 -->
+        <!-- <link rel="stylesheet" href="./alert/css/alert.ani.css"> -->
+        <link rel="stylesheet" href="./alert/css/alert.ani.min.css">
+        <!--  注意：以下为示例页面的样式，与插件无关 -->
+        <link rel="stylesheet" href="./demo.css">
+    </head>
+
+    <body class="body">
+
+        <h3 class="page-title">简单的Alert弹窗插件（原生JavaScript）</h3>
+        <div class="content-box">
+            <h5 class="title">位置支持（参数项position）：</h5>
+            <div class="btn-wrap">
+                <button class="btn" onclick="fnShowPosition('left','左边显示')">左边（left）</button>
+                <button class="btn"
+                    onclick="fnShowPosition('left-top','左上角显示')">左上角（left-top）</button>
+                <button class="btn"
+                    onclick="fnShowPosition('left-bottom','左下角显示')">左下角（left-bottom）</button>
+                <button class="btn" onclick="fnShowPosition('top','顶部显示')">顶部（top）</button>
+                <button class="btn" onclick="fnShowPosition('center','居中显示')">居中（center）</button>
+                <button class="btn" onclick="fnShowPosition('bottom','底部显示')">底部（bottom）</button>
+                <button class="btn" onclick="fnShowPosition('right','右边显示')">右边（right）</button>
+                <button class="btn"
+                    onclick="fnShowPosition('right-top','右上角显示')">右上角（right-top）</button>
+                <button class="btn"
+                    onclick="fnShowPosition('right-bottom','右下角显示')">右下角（right-bottom）</button>
+            </div>
+        </div>
+        <div class="content-box">
+            <h5 class="title">动画支持（参数项animate）：</h5>
+            <div class="btn-wrap">
+                <button class="btn btn2"
+                    onclick="fnShowAnimate('zoom-in','从中间放大显示')">从中间放大显示（zoom-in）</button>
+                <button class="btn btn2"
+                    onclick="fnShowAnimate('left','从左边推出显示')">从左边推出显示（left）</button>
+                <button class="btn btn2"
+                    onclick="fnShowAnimate('top','从顶部推出显示')">从顶部推出显示（top）</button>
+                <button class="btn btn2"
+                    onclick="fnShowAnimate('right','从右边推出显示')">从右边推出显示（right）</button>
+                <button class="btn btn2"
+                    onclick="fnShowAnimate('bottom','从底部推出显示')">从底部推出显示（bottom）</button>
+                <button class="btn btn2" onclick="fnShowAnimate('','不使用动画效果')">无动画</button>
+            </div>
+        </div>
+        <div class="content-box base">
+            <h5 class="title">基础使用open(options)：</h5>
+            <div class="btn-wrap">
+                <button class="btn btn3" id="showAlert">显示弹窗</button>
+                <button class="btn btn3" id="showAlert2">显示弹窗2</button>
+                <button class="btn btn3" id="showAlert3">显示实例3</button>
+            </div>
+        </div>
+        <div class="copy-right">
+            作者：gorpeln丨博客地址：<a href="https://gorpeln.top" target="_blank"
+                title="小莫唐尼的个人博客">gorpeln.top</a>
+        </div>
+
+        <!-- 第二步：引入插件脚本 -->
+        <!-- <script src="./alert/js/alert.js"></script> -->
+        <script src="./alert/js/alert.min.js"></script>
+        <script>
+        let _tempPosition = 'center';
+
+        // 第三步：初始化插件
+        const tzAlert = new TzAlert({
+            id: 'alert1',
+            center: true, // 内容居中
+            useEscClose: true,
+            useInitShow: false,  // 实例化完成直接显示
+            useMaskClose: true,
+            title: {
+                html: '标题',
+                color: '#ff80ab',
+                fontSize: '18px'
+            },
+            mask: {
+                use: true,
+                background: 'rgba(0,0,0,.6)'
+            },
+            tips: {
+                html: '默认双击内容部分即可复制'
+            },
+            content: {
+                html: '这里是一段简单的文本内容而已'
+            },
+            onEvents: function (e) {
+                var ctx = e.ctx, cancel = e.cancel, confirm = e.confirm;
+                console.log('监听了内部的按钮事件')
+                console.log(e)
+                if (e.cancel) {
+                    tzAlert.close();
+                    e.ctx.close();
+                    console.log('点击了取消按钮');
+                }
+                else if (e.confirm) {
+                    console.log('点击了确定按钮')
+                }
+            },
+            onMounted: function () {
+                console.log('默认初始化完成钩子')
+            }
+        });
+
+        // 第四步：调用显示
+        // tzAlert.open(); // 初始化显示
+
+        // 事件调用显示
+        document.getElementById('showAlert').onclick = function () {
+            tzAlert.open(); // 不传参数显示默认初始化时候的内容
+        }
+
+        // 事件调用显示
+        document.getElementById('showAlert2').onclick = function () {
+            // 重新配置样式显示（覆盖默认初始化显示的数据，但是不影响 tzAlert.open(); 不传承时候的显示）
+            tzAlert.open({
+                center: false,
+                position: 'bottom',
+                useInitShow: false,  // 实例化完成直接显示
+                useMaskClose: false, // 是否使用遮罩层关闭
+                useEscClose: true,
+                title: {
+                    html: '标题3'
+                },
+                tips: {
+                    html: '提示：当前为单击复制内容！'
+                },
+                mask: {
+                    use: false,
+                    background: 'rgba(0,0,0,.6)'
+                },
+                copy: {
+                    onlyText: false,
+                    isDbClick: false
+                },
+                cancel: {
+                    use: false,
+                },
+                content: {
+                    html: `
+                            <div class="demo" >
+                                你试试复制我吧，我包含了dom元素的哦！
+                                <h5>其实我才是标题，上面只是一个描述</h5>
+                            </div>`
+                },
+                onMounted: function () {
+                    console.log('弹出完毕！')
+                }
+            });
+        }
+
+        // 事件调用显示
+        document.getElementById('showAlert3').onclick = function () {
+            tzAlert.open({
+                center: true, // 内容居中
+                useInitShow: false,  // 实例化完成直接显示
+                useMaskClose: false, // 是否使用遮罩层关闭
+                useEscClose: false,
+                useLockScroll: false,
+                position: 'right',
+                title: {
+                    html: '弹窗标题',
+                    color: '#ff80ab',
+                    fontSize: '18px'
+                },
+                cancel: {
+                    use: true,
+                },
+                mask: {
+                    use: true,
+                    background: 'rgba(255,128,171,.8)'
+                },
+                tips: {
+                    html: '点击内容部分即可复制'
+                },
+                content: {
+                    html: '我是第二个实例，看看有什么不一样'
+                },
+                onEvents(e) {
+                    console.log('监听了内部的按钮事件')
+                    console.log(e)
+                    alert('监听了内部的按钮事件，所以不会触发关闭')
+                },
+                onMounted: function () {
+                    console.log('执行我吧')
+                }
+            });
+        }
+
+        // 根据位置显示
+        function fnShowPosition(position, content) {
+            _tempPosition = position;
+            tzAlert.open({
+                position: position, content: {
+                    html: content
+                }
+            });
+        }
+
+        // 动画显示
+        function fnShowAnimate(animate, content) {
+            tzAlert.open({
+                position: _tempPosition,
+                animate: animate,
+                content: {
+                    html: content
+                }
+            });
+        }
+    </script>
+    </body>
+
+</html>
