@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>示例</title>
+    <!-- 第一步：引入插件样式 -->
+    <!-- 基础样式 -->
+    <!-- <link rel="stylesheet" href="./alert/css/alert.css"> -->
+    <link rel="stylesheet" href="https://lab.gorpeln.top/alert/alert/css/alert.min.css">
+    <!-- 动画支持：animate属性 -->
+    <!-- <link rel="stylesheet" href="./alert/css/alert.ani.css"> -->
+    <link rel="stylesheet" href="https://lab.gorpeln.top/alert/alert/css/alert.ani.min.css">
+    <meta charset="utf-8">
+</head>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+    }
+
+    .box {
+        /* 可选，如果你希望按钮在一个固定的容器内居中 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        /* 或者设置固定高度，比如 height: 100px; */
+    }
+
+    .btn {
+        /* 根据需要设置按钮样式 */
+        padding: 1em;
+        font-size: 1rem;
+        cursor: pointer;
+        border: none; /* 去除边框 */
+        border-radius:10px;
+
+    }
+</style>    
+<body>
+    <div class="box">
+        <button class="btn" onclick="fnShowPosition()">居中（center）</button>
+    </div>
+    <!-- 第二步：引入插件脚本 -->
+    <!-- <script src="./alert/js/alert.js"></script> -->
+    <script src="https://lab.gorpeln.top/alert/alert/js/alert.min.js"></script>
+    <script>
+    let _tempPosition = 'center';
+
+    // 第三步：初始化插件
+    const tzAlert = new TzAlert({
+        id: 'alert1',
+        center: true, // 内容居中
+        useEscClose: true,
+        useInitShow: false, // 实例化完成直接显示
+        useMaskClose: true,
+        title: {
+            html: '标题',
+            color: '#ff80ab',
+            fontSize: '18px'
+        },
+        mask: {
+            use: true,
+            background: 'rgba(0,0,0,.6)'
+        },
+        tips: {
+            html: '默认双击内容部分即可复制'
+        },
+        content: {
+            html: '这里是一段简单的文本内容而已'
+        },
+        onMounted: function() {
+            console.log('默认初始化完成钩子')
+        }
+    });
+
+    // 第四步：调用显示
+    function fnShowPosition() {
+        tzAlert.open({
+            position: 'center',
+            onEvents(e) {
+                console.log('监听了内部的按钮事件')
+                var ctx = e.ctx,
+                    cancel = e.cancel,
+                    confirm = e.confirm;
+                if (e.cancel) {
+                    console.log('点击了取消按钮');
+                } else if (e.confirm) {
+                    console.log('点击了确定按钮')
+                }
+                tzAlert.close();
+                e.ctx.close();
+            },
+        });
+    }
+    </script>
+</body>
+
+</html>
