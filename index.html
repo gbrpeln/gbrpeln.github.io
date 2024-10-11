@@ -3,78 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>项目列表</title>
-    <style> 
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+    <link rel="shortcut icon" href="favicon.ico" />
+    <title>gorpeln's Lab</title>
+<style> 
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
 
-        .container {
-            max-width: 800px;
-            margin: 40px auto;
-            text-align: center;
-        }
+    .container {
+        max-width: 1000px;
+        margin: 40px auto;
+        text-align: center;
+    }
 
-        h1 {
-            color: #333;
-        }
+    h1 {
+        color: #333;
+    }
 
-        ul {
-            list-style: none;
-            padding: 0;
-        }
+    ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap; /* 允许子元素换行 */
+        justify-content: center; /* 水平居中对齐 */
+    }
 
+    li {
+        border: 1px dashed #ddd;
+        margin: 10px;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        border-radius: 12px;
+        cursor: pointer;
+        flex-basis: calc(50% - 20px); /* 每个项目的宽度为三分之一，减去边距 */
+        box-sizing: border-box; /* 包括内边距和边框在内的总宽度 */
+    }
+
+    li:hover {
+        background-color: #f0f0f0;
+    }
+
+    img {
+        width: 60px;
+        height: 60px;
+        margin-right: 10px;
+        border-radius: 50%;
+    }
+
+    p {
+        text-align: left;
+        margin: 0;
+    }
+
+    .title {
+        font-weight: 600;
+        font-size: 1.2em;
+    }
+
+    .des {
+        color: #aaa;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    @media (max-width: 600px) { /* 当屏幕宽度小于600px时应用以下样式 */
         li {
-            border: 1px dashed #ddd;
-            margin: 10px 0;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            border-radius: 12px;
-            cursor: pointer;
+            flex-basis: 100%; /* 在小屏幕上每个项目占满一行 */
         }
-
-        li:hover {
-            background-color: #f0f0f0;
-        }
-
-        img {
-            width: 60px;
-            height: 60px;
-            margin-right: 10px;
-            border-radius: 50%;
-        }
-
-        p {
-            text-align: left;
-            margin: 0;
-        }
-
-        .title {
-            font-weight: 600;
-            font-size: 1.2em;
-        }
-
-        .des {
-            color: #aaa;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            align-items: center;
-            width: 100%;
-            height: 100%;
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
 
     <div class="container">
-        <h1>项目列表</h1>
+        <!-- <h1>项目列表</h1> -->
         <ul id="project-list"></ul>
     </div>
 
@@ -125,7 +137,7 @@
             {
                 "image": "tetris/favicon.ico",
                 "title": "俄罗斯方块",
-                "desc": "罗斯方块的基本规则是移动、旋转和摆放游戏自动输出的各种方块，使之排列成完整的一行或多行并且消除得分。由于上手简单、老少",
+                "desc": "将方块排列成完整的一行或多行并且消除得分",
                 "url": "tetris/index.html"
             }, 
             // {
